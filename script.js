@@ -5,10 +5,12 @@ if (navToggle && siteNav) {
   navToggle.addEventListener('click', () => {
     const isOpen = siteNav.classList.toggle('open');
     navToggle.setAttribute('aria-expanded', String(isOpen));
+    document.body.classList.toggle('noscroll', isOpen);
   });
   siteNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
     siteNav.classList.remove('open');
     navToggle.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('noscroll');
   }));
 }
 
